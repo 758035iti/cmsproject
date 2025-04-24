@@ -1,0 +1,9 @@
+export { default as img11 } from "./img11.png";
+export { default as img3 } from "./img3.png";
+export { default as img4 } from "./img4.png";
+export { default as img5 } from "./img5.png";
+export { default as img6 } from "./img6.png";
+export { default as img7 } from "./img7.png";
+export { default as img8 } from "./img8.png";
+export { default as img9 } from "./img9.png";
+export { default as img10 } from "./img10.png";
