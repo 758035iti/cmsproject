@@ -5,7 +5,7 @@ import React from 'react';
 
 export default function Header() {
   return (
-    <div className='relative'>
+    <div className='relative '>
       <section className='w-full h-20 flex items-center justify-between px-20 shadow-md bg-white z-50'>
         <img src={Logo.src} className='w-16 h-16' alt="Logo" />
 
@@ -25,7 +25,7 @@ export default function Header() {
                       href={`${item.url}${sub.path}`}
                       className='block px-4 py-4 text-sm text-white  hover:text-green-500'
                     >
-                      {sub.name}<hr/>
+                      {sub.name}<hr className='w-full text-gray-950'/>
                     </Link>
                   ))}
                 </div>
@@ -37,7 +37,9 @@ export default function Header() {
         <div className='w-44 h-16 pt-2 bg-green-600 text-center  hover:bg-green-800 rounded'>
           {
             experienceArr.map((item:any) => (
+              <div key={item.id.toString()} className='flex items-center justify-center gap-2'>
               <p className='text-white w-40'>{item.title}</p>
+              </div>
             ))
           }
         </div>
