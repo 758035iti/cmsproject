@@ -1,24 +1,47 @@
-import { Logo } from '@/assets/navbar'
-import { navArr } from '@/utils/navbar'
-import Link from 'next/link'
-import React from 'react'
+import { Logo } from '@/assets/navbar';
+import { experienceArr, navArr } from '@/utils/navbar';
+import Link from 'next/link';
+import React from 'react';
 
 export default function Header() {
   return (
-    <div className='relative '>
-      <section className='w-full h-20 flex items-center justify-between px-10 shadow-black shadow-md'>
-        <img src={Logo.src} className=' w-16 h-16'/>
-        <div className=''>
+    <div className='relative'>
+      <section className='w-full h-20 flex items-center justify-between px-20 shadow-md bg-white z-50'>
+        <img src={Logo.src} className='w-16 h-16' alt="Logo" />
+
+        <div className='flex gap-6 items-center'>
+          {navArr.map((item) => (
+            <div className='relative group' key={item.id}>
+              <Link href={item.url} className='uppercase text-sm font-semibold hover:underline'>
+                {item.title}
+              </Link>
+
+              {/* Submenu */}
+              {item.submenu && (
+                <div className='absolute left-0 top-full mt-2 w-56 bg-gray-800 shadow-md  opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity duration-200 z-50'>
+                  {item.submenu.map((sub, index) => (
+                    <Link
+                      key={index}
+                      href={`${item.url}${sub.path}`}
+                      className='block px-4 py-4 text-sm text-white  hover:text-green-500'
+                    >
+                      {sub.name}<hr/>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        <div className='w-44 h-16 pt-2 bg-green-600 text-center  hover:bg-green-800 rounded'>
           {
-            navArr.map((item) => (
-              <div className='inline-block mx-2' key={item.id}>
-                <Link href={'/'} className='uppercase text-sm font-semibold hover:underline '>{item.title}</Link>
-              </div>
+            experienceArr.map((item:any) => (
+              <p className='text-white w-40'>{item.title}</p>
             ))
           }
         </div>
-        <button className=' w-32 text-center h-10 bg-green-700 text-white hover:bg-green-800'>Get a Quote?</button>
       </section>
     </div>
-  )
+  );
 }

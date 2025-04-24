@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@types/react-slick": "^0.23.13",
+    "lucide-react": "^0.503.0",
     "material-icons": "^1.13.14",
     "next": "15.3.1",
     "react": "^19.0.0",
